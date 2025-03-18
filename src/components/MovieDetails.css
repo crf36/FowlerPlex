@@ -1,0 +1,85 @@
+/* Add this to your global styles or Tailwind config */
+
+.movie-details-container {
+  background-color: #111;
+  color: #fff;
+}
+
+.movie-details-header {
+  background-size: cover;
+  background-position: center;
+  padding: 40px;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.movie-details-header-content {
+  text-align: center;
+}
+
+.movie-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.movie-release-date {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.movie-content-container {
+  display: flex;
+  padding: 20px;
+  background-color: #222;
+  border-radius: 10px;
+  margin: -40px 20px 20px 20px;
+}
+
+.movie-poster-container {
+  flex: 1;
+  padding: 20px;
+}
+
+.movie-poster {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.movie-info-container {
+  flex: 2;
+  padding: 20px;
+}
+
+.movie-info-container h2,
+.movie-info-container h3 {
+  margin-top: 0;
+}
+
+.genres-container {
+  margin: 10px 0;
+}
+
+.genre-tag {
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.rating {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ff9800;
+}
