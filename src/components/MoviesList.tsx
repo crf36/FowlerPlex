@@ -1,7 +1,7 @@
 import { useMoviesDataContext } from "../context/MoviesDataContextHook";
+import { MoviesListProps } from "../Types";
 import LoadingIndicator from "./LoadingIndicator";
 import MovieComponent from "./MovieComponent";
-import { MoviesListProps } from "../Types";
 import {
   Carousel,
   CarouselContent,
@@ -10,18 +10,18 @@ import {
   CarouselPrevious,
 } from "./ui/carousel";
 
-export default function MoviesList({ category }: MoviesListProps) {
+export default function MoviesList({ tag }: MoviesListProps) {
   const { movies, isLoading } = useMoviesDataContext();
 
-  if (isLoading || !movies || !category) {
+  if (isLoading || !movies || !tag) {
     return <LoadingIndicator />;
   }
 
-  const movieList = movies[category.key];
+  const movieList = Object.values(movies).filter((movie) => movie.tag === tag);
 
   return (
     <div className="movies-list w-full overflow-hidden">
-      <h1 className="category-title">{category.name}</h1>
+      <h1 className="category-title">{tag}</h1>
       <Carousel
         opts={{
           align: "start",

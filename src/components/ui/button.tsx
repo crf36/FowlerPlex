@@ -1,3 +1,12 @@
+/*======================================================================
+ * FILE:    button.tsx.tsx
+ * AUTHOR:  Chris Fowler
+ * DATE:    Winter 2025
+ *
+ * DESCRIPTION: Custom component found on the web to generate the next and previous
+ *              buttons on our carousel.
+ */
+
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";

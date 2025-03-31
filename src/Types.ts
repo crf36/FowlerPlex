@@ -4,45 +4,16 @@ export interface Movie {
   title: string;
   overview: string;
   release_date: string;
-}
-
-export interface MoviesByCategory {
-  newReleaseMovies: Movie[];
-  topRatedMovies: Movie[];
-  familyFriendlyMovies: Movie[];
-  actionMovies: Movie[];
-  romanceMovies: Movie[];
-  dramaMovies: Movie[];
-  sciFiMovies: Movie[];
-  thrillerMovies: Movie[];
+  tag: string;
 }
 
 export type MoviesContextType = {
-  movies: MoviesByCategory;
+  movies: { [id: string]: Movie };
   isLoading: boolean;
 };
 
-export interface Category {
-  key: keyof MoviesByCategory;
-  name: string;
-}
-
-export const categories: Category[] = [
-  { key: "newReleaseMovies", name: "New Releases" },
-  { key: "topRatedMovies", name: "Top Rated" },
-  { key: "familyFriendlyMovies", name: "Family Friendly" },
-  { key: "actionMovies", name: "Action" },
-  { key: "romanceMovies", name: "Romance" },
-  { key: "dramaMovies", name: "Drama" },
-  { key: "sciFiMovies", name: "Sci-Fi" },
-  { key: "thrillerMovies", name: "Thriller" },
-];
-
 export interface MoviesListProps {
-  category: {
-    key: keyof MoviesByCategory;
-    name: string;
-  };
+  tag: string;
 }
 
 export interface MovieProps {

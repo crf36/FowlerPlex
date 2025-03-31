@@ -1,3 +1,11 @@
+/*======================================================================
+ * FILE:    carousel.tsx.tsx
+ * AUTHOR:  Chris Fowler
+ * DATE:    Winter 2025
+ *
+ * DESCRIPTION: Custom component found on the web to generate a carousel
+ */
+
 import * as React from "react";
 import useEmblaCarousel, {
   type UseEmblaCarouselType,

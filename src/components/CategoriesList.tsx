@@ -1,5 +1,5 @@
+import { CATEGORY_TAGS } from "../Constants";
 import { useMoviesDataContext } from "../context/MoviesDataContextHook";
-import { categories } from "../Types";
 import LoadingIndicator from "./LoadingIndicator";
 import MoviesList from "./MoviesList";
 
@@ -10,8 +10,8 @@ export default function CategoriesList() {
     <LoadingIndicator />
   ) : (
     <div>
-      {categories.map((category) => (
-        <MoviesList key={category.key} category={category} />
+      {CATEGORY_TAGS.map(({ tag }) => (
+        <MoviesList key={tag} tag={tag} />
       ))}
     </div>
   );
