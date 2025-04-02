@@ -1,7 +1,20 @@
+/*======================================================================
+ * FILE:    MovieDetails.tsx
+ * AUTHOR:  Chris Fowler
+ * DATE:    Winter 2025
+ *
+ * DESCRIPTION: Component to display information about a selected movie
+ */
+/*----------------------------------------------------------------------
+ *                      IMPORTS
+ */
 import { useFetchMovieDetails } from "../api/MovieDetailsApi";
 import LoadingIndicator from "./LoadingIndicator";
 import "./MovieDetails.css";
 
+/*----------------------------------------------------------------------
+ *                      COMPONENT
+ */
 export function MovieDetailsPage() {
   const { movieDetails, isLoading } = useFetchMovieDetails();
 

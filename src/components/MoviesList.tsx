@@ -1,3 +1,13 @@
+/*======================================================================
+ * FILE:    MoviesList.tsx
+ * AUTHOR:  Chris Fowler
+ * DATE:    Winter 2025
+ *
+ * DESCRIPTION: Component to display carousel of movies
+ */
+/*----------------------------------------------------------------------
+ *                      IMPORTS
+ */
 import { useMoviesDataContext } from "../context/MoviesDataContextHook";
 import { MoviesListProps } from "../Types";
 import LoadingIndicator from "./LoadingIndicator";
@@ -9,7 +19,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
+import "./MoviesList.css";
 
+/*----------------------------------------------------------------------
+ *                      COMPONENT
+ */
 export default function MoviesList({ tag }: MoviesListProps) {
   const { movies, isLoading } = useMoviesDataContext();
 
@@ -20,17 +34,20 @@ export default function MoviesList({ tag }: MoviesListProps) {
   const movieList = Object.values(movies).filter((movie) => movie.tag === tag);
 
   return (
-    <div className="movies-list w-full overflow-hidden">
+    <div className="movies-list">
       <h1 className="category-title">{tag}</h1>
       <Carousel
         opts={{
           align: "start",
         }}
-        className="w-full max-w-screen-xl mx-auto relative"
+        className="carousel"
       >
         <CarouselContent className="flex">
           {movieList.map((movie) => (
-            <CarouselItem key={movie.id} className="md:basis-1/2 lg:basis-1/8">
+            <CarouselItem
+              key={movie.id}
+              className="carousel-item md:basis-1/2 lg:basis-1/8"
+            >
               <MovieComponent movie={movie} />
             </CarouselItem>
           ))}

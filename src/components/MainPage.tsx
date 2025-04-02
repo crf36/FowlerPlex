@@ -1,9 +1,19 @@
+/*======================================================================
+ * FILE:    MainPage.tsx
+ * AUTHOR:  Chris Fowler
+ * DATE:    Winter 2025
+ *
+ * DESCRIPTION: Component to organize the single-page application
+ */
+/*----------------------------------------------------------------------
+ *                      IMPORTS
+ */
+import { Header } from "./Header";
 import { Navigation } from "./Navigation";
 
-function Header() {
-  return <div>Header</div>;
-}
-
+/*----------------------------------------------------------------------
+ *                      COMPONENT
+ */
 export default function MainPage() {
   return (
     <main style={{ width: "100%" }}>

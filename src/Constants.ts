@@ -6,10 +6,10 @@ export const URL_QUERY_PARAMS =
 export const CATEGORY_TAGS = [
   { tag: "New Releases", url: "/movie/now_playing?" },
   { tag: "Top Rated", url: "/movie/top_rated?" },
-  { tag: "Family Friendly", url: "/discover/movie?with_genres=10751&" },
-  { tag: "Action", url: "/discover/movie?with_genres=28&" },
+  { tag: "Action and Adventure", url: "/discover/movie?with_genres=28&" },
   { tag: "Romance", url: "/discover/movie?with_genres=10749&" },
-  { tag: "Drama", url: "/discover/movie?with_genres=18&" },
+  { tag: "Family Friendly", url: "/discover/movie?with_genres=10751&" },
   { tag: "Sci-Fi", url: "/discover/movie?with_genres=878&" },
+  { tag: "Musical", url: "/discover/movie?with_genres=10402&" },
   { tag: "Thriller", url: "/discover/movie?with_genres=53&" },
 ];

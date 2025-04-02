@@ -1,0 +1,23 @@
+.movies-list {
+  width: 100%;
+  overflow: hidden;
+}
+
+.category-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: black;
+  padding: 8px 24px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 12px;
+  margin-left: 100px;
+}
+
+.carousel {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}

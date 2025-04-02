@@ -1,9 +1,22 @@
+/*======================================================================
+ * FILE:    MovieComponent.tsx
+ * AUTHOR:  Chris Fowler
+ * DATE:    Winter 2025
+ *
+ * DESCRIPTION: Component to display clickable movie image in carousel
+ */
+/*----------------------------------------------------------------------
+ *                      IMPORTS
+ */
 import { useNavigate } from "react-router-dom";
 import { useMoviesDataContext } from "../context/MoviesDataContextHook";
 import { MovieProps } from "../Types";
 import LoadingIndicator from "./LoadingIndicator";
 import { IMG_URL } from "../Constants";
 
+/*----------------------------------------------------------------------
+ *                      COMPONENT
+ */
 export default function MovieComponent({ movie }: MovieProps) {
   const { movies, isLoading } = useMoviesDataContext();
 

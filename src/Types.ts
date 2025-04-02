@@ -4,7 +4,16 @@ export interface Movie {
   title: string;
   overview: string;
   release_date: string;
-  tag: string;
+  tag?: string;
+}
+
+export interface MovieDetails extends Movie {
+  backdrop_path: string;
+  runtime: number;
+  genres: { id: number; name: string }[];
+  vote_average: number;
+  vote_count: number;
+  tagline: string;
 }
 
 export type MoviesContextType = {
@@ -18,18 +27,4 @@ export interface MoviesListProps {
 
 export interface MovieProps {
   movie?: Movie;
-}
-
-export interface MovieDetails {
-  id: number;
-  title: string;
-  overview: string;
-  poster_path: string;
-  backdrop_path: string;
-  release_date: string;
-  runtime: number;
-  genres: { id: number; name: string }[];
-  vote_average: number;
-  vote_count: number;
-  tagline: string;
 }
