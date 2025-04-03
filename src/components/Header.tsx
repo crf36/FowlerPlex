@@ -10,21 +10,22 @@
  */
 import { useNavigate } from "react-router-dom";
 import "./Header.css";
+import { useState } from "react";
 
 /*----------------------------------------------------------------------
  *                      COMPONENT
  */
 export function Header() {
   const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSearchSubmit = function (event: React.FormEvent) {
+  const handleSearchSubmit = function (
+    event: React.FormEvent<HTMLFormElement>
+  ) {
     event.preventDefault();
 
-    const form = event.target as HTMLFormElement;
-    const searchTerm = (form.elements.namedItem("search") as HTMLInputElement)
-      .value;
-    if (searchTerm) {
-      navigate(`/search?query=${encodeURIComponent(searchTerm)}`, {
+    if (searchQuery.trim()) {
+      navigate(`/search?query=${encodeURIComponent(searchQuery)}`, {
         replace: true,
       });
     }
@@ -34,10 +35,13 @@ export function Header() {
       <div className="logo">MovieDB</div>
       <form onSubmit={handleSearchSubmit}>
         <input
+          id="search"
           type="text"
           placeholder="Search movies..."
           className="search-input"
           name="search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
         <button type="submit" className="search-button">
           Search
