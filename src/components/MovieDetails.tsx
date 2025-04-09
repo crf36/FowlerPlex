@@ -23,15 +23,14 @@ export function MovieDetailsPage() {
   }
 
   return (
-    <div className="movie-details-container">
-      {/* Background Image Section */}
+    <div className="movie-details">
       <div
         className="movie-details-header"
         style={{
           backgroundImage: `url(https://image.tmdb.org/t/p/original${movieDetails.backdrop_path})`,
         }}
       >
-        <div className="overlay">
+        <div>
           <div className="movie-details-header-content">
             <h1 className="movie-title">{movieDetails.title}</h1>
             <p className="movie-release-date">{movieDetails.release_date}</p>
@@ -39,13 +38,11 @@ export function MovieDetailsPage() {
         </div>
       </div>
 
-      {/* Movie Content Section */}
       <div className="movie-content-container">
         <div className="movie-poster-container">
           <img
             src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
             alt={movieDetails.title}
-            className="movie-poster"
           />
         </div>
 
@@ -69,17 +66,3 @@ export function MovieDetailsPage() {
     </div>
   );
 }
-
-// import { useFetchMovieDetails } from "../api/MovieDetailsApi";
-// import LoadingIndicator from "./LoadingIndicator";
-
-// export function MovieDetailsPage() {
-//   const { movieDetails, isLoading } = useFetchMovieDetails();
-//   console.log(movieDetails);
-
-//   if (isLoading || !movieDetails) {
-//     return <LoadingIndicator />;
-//   }
-
-//   return <div>Movie Details {movieDetails.title}</div>;
-// }
