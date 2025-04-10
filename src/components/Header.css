@@ -6,10 +6,10 @@
   align-items: center;
 }
 
-.logo {
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
+.logoImg {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
 }
 
 .search-input {

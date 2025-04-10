@@ -32,7 +32,7 @@ export function Header() {
   };
   return (
     <div className="header">
-      <div className="logo">MovieDB</div>
+      <img className="logoImg" src="./public/TMDB_Logo.svg" />
       <form onSubmit={handleSearchSubmit}>
         <input
           id="search"
