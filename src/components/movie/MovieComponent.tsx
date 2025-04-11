@@ -9,10 +9,10 @@
  *                      IMPORTS
  */
 import { useNavigate } from "react-router-dom";
-import { useMoviesDataContext } from "../context/MoviesDataContextHook";
-import { MovieProps } from "../Types";
-import LoadingIndicator from "./LoadingIndicator";
-import { IMG_URL } from "../Constants";
+import { useMoviesDataContext } from "../../context/MoviesDataContextHook";
+import { MovieProps } from "../../Types";
+import LoadingIndicator from "../LoadingIndicator";
+import { IMG_URL } from "../../Constants";
 
 /*----------------------------------------------------------------------
  *                      COMPONENT

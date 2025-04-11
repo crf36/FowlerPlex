@@ -8,9 +8,9 @@
 /*----------------------------------------------------------------------
  *                      IMPORTS
  */
-import { CATEGORY_TAGS } from "../Constants";
-import { useMoviesDataContext } from "../context/MoviesDataContextHook";
-import LoadingIndicator from "./LoadingIndicator";
+import { CATEGORY_TAGS } from "../../Constants";
+import { useMoviesDataContext } from "../../context/MoviesDataContextHook";
+import LoadingIndicator from "../LoadingIndicator";
 import MoviesList from "./MoviesList";
 
 /*----------------------------------------------------------------------
@@ -22,9 +22,15 @@ export default function CategoriesList() {
   return isLoading ? (
     <LoadingIndicator />
   ) : (
-    <div>
+    <div
+      className="categories-container"
+      style={{ backgroundColor: "#141414" }}
+    >
       {CATEGORY_TAGS.map(({ tag }) => (
-        <MoviesList key={tag} tag={tag} />
+        <div className="category-section" key={tag}>
+          <h2 className="category-title">{tag}</h2>
+          <MoviesList tag={tag} />
+        </div>
       ))}
     </div>
   );

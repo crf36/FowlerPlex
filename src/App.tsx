@@ -11,9 +11,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { MoviesDataProvider } from "./context/MoviesDataProvider";
 import MainPage from "./components/MainPage";
-import CategoriesList from "./components/CategoriesList";
-import { MovieDetailsPage } from "./components/MovieDetails";
-import { SearchResultsPage } from "./components/SearchResultsPage";
+import CategoriesList from "./components/movie/CategoriesList";
+import { MovieDetailsPage } from "./components/movie/MovieDetails";
+import { SearchPage } from "./components/search/SearchPage";
 
 /*----------------------------------------------------------------------
  *                      CUSTOM HELPERS
@@ -34,7 +34,7 @@ function App() {
       children: [
         { path: "", element: <CategoriesList /> },
         { path: ":movie_id", element: <MovieDetailsPage /> },
-        { path: "search", element: <SearchResultsPage /> },
+        { path: "search", element: <SearchPage /> },
       ],
     },
   ]);

@@ -1,6 +1,18 @@
-import React from "react";
+/*======================================================================
+ * FILE:    Footer.tsx
+ * AUTHOR:  Chris Fowler
+ * DATE:    Winter 2025
+ *
+ * DESCRIPTION: Component to display footer with copyright and TMDB notice.
+ */
+/*----------------------------------------------------------------------
+ *                      IMPORTS
+ */
 import "./Footer.css";
 
+/*----------------------------------------------------------------------
+ *                      COMPONENT
+ */
 export const Footer = () => {
   return (
     <footer className="footer">

@@ -16,10 +16,10 @@ export interface MovieDetails extends Movie {
   tagline: string;
 }
 
-export type MoviesContextType = {
+export interface MoviesContextType {
   movies: { [id: string]: Movie };
   isLoading: boolean;
-};
+}
 
 export interface MoviesListProps {
   tag: string;
@@ -27,4 +27,8 @@ export interface MoviesListProps {
 
 export interface MovieProps {
   movie?: Movie;
+}
+
+export interface SearchResultsProps {
+  query: string;
 }

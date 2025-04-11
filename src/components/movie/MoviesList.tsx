@@ -8,17 +8,17 @@
 /*----------------------------------------------------------------------
  *                      IMPORTS
  */
-import { useMoviesDataContext } from "../context/MoviesDataContextHook";
-import { MoviesListProps } from "../Types";
-import LoadingIndicator from "./LoadingIndicator";
-import MovieComponent from "./MovieComponent";
+import { useMoviesDataContext } from "../../context/MoviesDataContextHook";
+import { MoviesListProps } from "../../Types";
+import LoadingIndicator from "../LoadingIndicator";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "./ui/carousel";
+} from "../carousel/carousel";
+import MovieComponent from "./MovieComponent";
 import "./MoviesList.css";
 
 /*----------------------------------------------------------------------
@@ -35,7 +35,6 @@ export default function MoviesList({ tag }: MoviesListProps) {
 
   return (
     <div className="movies-list">
-      <h1 className="category-title">{tag}</h1>
       <Carousel
         opts={{
           align: "start",

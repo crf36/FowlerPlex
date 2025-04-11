@@ -1,7 +1,21 @@
+/*======================================================================
+ * FILE:    SearchRessultsApi.tsx
+ * AUTHOR:  Chris Fowler
+ * DATE:    Winter 2025
+ *
+ * DESCRIPTION: Custom hook that fetches movies that contain the query
+ *              string.
+ */
+/*----------------------------------------------------------------------
+ *                      IMPORTS
+ */
 import { useEffect, useState } from "react";
 import { API_KEY, BASE_URL } from "../Constants";
 import { Movie } from "../Types";
 
+/*----------------------------------------------------------------------
+ *                      PUBLIC HOOKS
+ */
 export const useFetchSearchResults = function (searchQuery: string) {
   const [isLoading, setIsLoading] = useState(true);
   const [searchResults, setSearchResults] = useState<{ [id: string]: Movie }>(

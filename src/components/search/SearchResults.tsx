@@ -1,11 +1,23 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { useFetchSearchResults } from "../api/SearchResultsApi";
-import "./SearchResultsPage.css";
+/*======================================================================
+ * FILE:    SearchResults.tsx
+ * AUTHOR:  Chris Fowler
+ * DATE:    Winter 2025
+ *
+ * DESCRIPTION: Component that displays the movie results based on the
+ *              search query.
+ */
+/*----------------------------------------------------------------------
+ *                      IMPORTS
+ */
+import { useNavigate } from "react-router-dom";
+import { useFetchSearchResults } from "../../api/SearchResultsApi";
+import "./SearchResults.css";
+import { SearchResultsProps } from "../../Types";
 
-export function SearchResultsPage() {
-  const [searchParams] = useSearchParams();
-  const query = searchParams.get("query") || "";
-
+/*----------------------------------------------------------------------
+ *                      COMPONENT
+ */
+export function SearchResults({ query }: SearchResultsProps) {
   const { searchResults, isLoading } = useFetchSearchResults(query);
 
   const navigate = useNavigate();

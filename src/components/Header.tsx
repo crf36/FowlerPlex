@@ -3,50 +3,53 @@
  * AUTHOR:  Chris Fowler
  * DATE:    Winter 2025
  *
- * DESCRIPTION: Header component with title and search bar
+ * DESCRIPTION: Header component with navigation tabs
  */
 /*----------------------------------------------------------------------
  *                      IMPORTS
  */
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./Header.css";
-import { useState } from "react";
 
 /*----------------------------------------------------------------------
  *                      COMPONENT
  */
 export function Header() {
   const navigate = useNavigate();
-  const [searchQuery, setSearchQuery] = useState("");
+  const location = useLocation();
 
-  const handleSearchSubmit = function (
-    event: React.FormEvent<HTMLFormElement>
-  ) {
-    event.preventDefault();
-
-    if (searchQuery.trim()) {
-      navigate(`/search?query=${encodeURIComponent(searchQuery)}`, {
-        replace: true,
-      });
-    }
+  const handleLogoClick = function () {
+    navigate("/");
   };
+
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
+
   return (
     <div className="header">
-      <img className="logoImg" src="./public/TMDB_Logo.svg" />
-      <form onSubmit={handleSearchSubmit}>
-        <input
-          id="search"
-          type="text"
-          placeholder="Search movies..."
-          className="search-input"
-          name="search"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+      <div className="header-left">
+        <img
+          className="logoImg"
+          src="/TMDB_Logo.svg"
+          onClick={handleLogoClick}
+          alt="TMDB Logo"
         />
-        <button type="submit" className="search-button">
-          Search
-        </button>
-      </form>
+        <div className="nav-tabs">
+          <div
+            className={`nav-tab ${isActive("/") ? "active" : ""}`}
+            onClick={() => navigate("/")}
+          >
+            Home
+          </div>
+          <div
+            className={`nav-tab ${isActive("/search") ? "active" : ""}`}
+            onClick={() => navigate("/search")}
+          >
+            Search
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -8,8 +8,8 @@
 /*----------------------------------------------------------------------
  *                      IMPORTS
  */
-import { useFetchMovieDetails } from "../api/MovieDetailsApi";
-import LoadingIndicator from "./LoadingIndicator";
+import { useFetchMovieDetails } from "../../api/MovieDetailsApi";
+import LoadingIndicator from "../LoadingIndicator";
 import "./MovieDetails.css";
 
 /*----------------------------------------------------------------------
