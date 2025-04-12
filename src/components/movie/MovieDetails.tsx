@@ -22,18 +22,28 @@ export function MovieDetailsPage() {
     return <LoadingIndicator />;
   }
 
+  const {
+    title,
+    release_date,
+    poster_path,
+    backdrop_path,
+    overview,
+    genres,
+    vote_average,
+  } = movieDetails;
+
   return (
     <div className="movie-details">
       <div
         className="movie-details-header"
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/original${movieDetails.backdrop_path})`,
+          backgroundImage: `url(https://image.tmdb.org/t/p/original${backdrop_path})`,
         }}
       >
         <div>
           <div className="movie-details-header-content">
-            <h1 className="movie-title">{movieDetails.title}</h1>
-            <p className="movie-release-date">{movieDetails.release_date}</p>
+            <h1 className="movie-title">{title}</h1>
+            <p className="movie-release-date">{release_date}</p>
           </div>
         </div>
       </div>
@@ -41,18 +51,18 @@ export function MovieDetailsPage() {
       <div className="movie-content-container">
         <div className="movie-poster-container">
           <img
-            src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
-            alt={movieDetails.title}
+            src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+            alt={title}
           />
         </div>
 
         <div className="movie-info-container">
           <h2>Overview</h2>
-          <p>{movieDetails.overview}</p>
+          <p>{overview}</p>
 
           <h3>Genres</h3>
           <div className="genres-container">
-            {movieDetails.genres.map((genre) => (
+            {genres.map((genre) => (
               <span key={genre.id} className="genre-tag">
                 {genre.name}
               </span>
@@ -60,7 +70,7 @@ export function MovieDetailsPage() {
           </div>
 
           <h3>Rating</h3>
-          <p className="rating">⭐ {movieDetails.vote_average} / 10</p>
+          <p className="rating">⭐ {vote_average} / 10</p>
         </div>
       </div>
     </div>

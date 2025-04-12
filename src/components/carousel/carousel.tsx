@@ -72,17 +72,46 @@ function Carousel({
     setCanScrollNext(api.canScrollNext());
   }, []);
 
+  const getVisibleSlidesCount = React.useCallback(() => {
+    let count = 2;
+
+    if (typeof window !== "undefined") {
+      const width = window.innerWidth;
+      if (width >= 1920) {
+        count = 5;
+      } else if (width >= 1536) {
+        count = 4;
+      } else if (width >= 1280) {
+        count = 3;
+      } else if (width >= 1024) {
+        count = 2;
+      } else if (width >= 768) {
+        count = 2;
+      } else {
+        count = 2;
+      }
+    }
+
+    if (opts && typeof opts.slidesToScroll === "number") {
+      count = opts.slidesToScroll;
+    }
+
+    return count;
+  }, [opts]);
+
   const scrollNext = React.useCallback(() => {
     if (api) {
-      api.scrollTo(api.selectedScrollSnap() + 4);
+      const slidesToScroll = getVisibleSlidesCount();
+      api.scrollTo(api.selectedScrollSnap() + slidesToScroll);
     }
-  }, [api]);
+  }, [api, getVisibleSlidesCount]);
 
   const scrollPrev = React.useCallback(() => {
     if (api) {
-      api.scrollTo(api.selectedScrollSnap() - 4);
+      const slidesToScroll = getVisibleSlidesCount();
+      api.scrollTo(api.selectedScrollSnap() - slidesToScroll);
     }
-  }, [api]);
+  }, [api, getVisibleSlidesCount]);
 
   const handleKeyDown = React.useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {

@@ -87,7 +87,6 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 20px;
-  color: var(--accent-color);
   padding-bottom: 10px;
   border-bottom: 2px solid var(--primary-color);
 }
@@ -96,7 +95,6 @@
   font-size: 1.2rem;
   font-weight: 600;
   margin: 20px 0 10px;
-  color: var(--accent-color);
 }
 
 .movie-details .genres-container {
@@ -114,13 +112,6 @@
   font-size: 0.8rem;
   border: 1px solid rgba(229, 9, 20, 0.4);
   margin-bottom: 5px;
-}
-
-.movie-details .rating-container {
-  display: flex;
-  align-items: center;
-  margin: 15px 0;
-  gap: 10px;
 }
 
 .movie-details .rating {

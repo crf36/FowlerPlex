@@ -38,10 +38,12 @@ export const useFetchMovieDetails = function () {
         setMovieDetails(data || []);
       } catch (error) {
         console.error("Error fetching movie details:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
+
     fetchMovieDetails();
-    setIsLoading(false);
   }, [movie_id]);
   return { movieDetails, isLoading };
 };

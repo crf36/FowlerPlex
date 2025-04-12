@@ -1,5 +1,5 @@
 /*======================================================================
- * FILE:    SearchRessultsApi.tsx
+ * FILE:    SearchResultsApi.tsx
  * AUTHOR:  Chris Fowler
  * DATE:    Winter 2025
  *
@@ -22,9 +22,11 @@ export const useFetchSearchResults = function (searchQuery: string) {
     {}
   );
 
-  const url = `/search/movie?query=${searchQuery}&include_adult=false&language=en-US&page=1`;
-
   useEffect(() => {
+    const url = `/search/movie?query=${encodeURIComponent(
+      searchQuery
+    )}&include_adult=false&language=en-US&page=1`;
+
     const fetchSearchResults = async () => {
       try {
         const response = await fetch(`${BASE_URL}${url}`, {
@@ -39,7 +41,7 @@ export const useFetchSearchResults = function (searchQuery: string) {
         const movies = Object.fromEntries(
           data.results.map((movie: Movie) => [movie.id, { ...movie }])
         );
-        setSearchResults(movies || []);
+        setSearchResults(movies || {});
       } catch (error) {
         console.error("Error fetching movie search results:", error);
       } finally {
@@ -48,6 +50,6 @@ export const useFetchSearchResults = function (searchQuery: string) {
     };
 
     fetchSearchResults();
-  }, [searchQuery, url]);
+  }, [searchQuery]);
   return { searchResults, isLoading };
 };

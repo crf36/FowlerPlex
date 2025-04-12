@@ -1,0 +1,17 @@
+.movie-button {
+  width: 8rem;
+  height: 12rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.movie-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px white;
+}
+
+.movie-button:active {
+  transform: scale(0.95);
+}

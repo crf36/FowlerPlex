@@ -18,11 +18,7 @@ export function Header() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleLogoClick = function () {
-    navigate("/");
-  };
-
-  const isActive = (path: string) => {
+  const isActive = (path: string): boolean => {
     return location.pathname === path;
   };
 
@@ -32,7 +28,7 @@ export function Header() {
         <img
           className="logoImg"
           src="/TMDB_Logo.svg"
-          onClick={handleLogoClick}
+          onClick={() => navigate("/")}
           alt="TMDB Logo"
         />
         <div className="nav-tabs">

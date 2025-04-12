@@ -7,6 +7,10 @@ export interface Movie {
   tag?: string;
 }
 
+export interface Movies {
+  [key: string]: Movie;
+}
+
 export interface MovieDetails extends Movie {
   backdrop_path: string;
   runtime: number;
@@ -15,6 +19,16 @@ export interface MovieDetails extends Movie {
   vote_count: number;
   tagline: string;
 }
+
+export type CategoryTag =
+  | "New Releases"
+  | "Action and Adventure"
+  | "Family Friendly"
+  | "Romance"
+  | "Mystery"
+  | "Sci-Fi"
+  | "Musical"
+  | "Thriller";
 
 export interface MoviesContextType {
   movies: { [id: string]: Movie };
@@ -26,7 +40,7 @@ export interface MoviesListProps {
 }
 
 export interface MovieProps {
-  movie?: Movie;
+  movie: Movie;
 }
 
 export interface SearchResultsProps {

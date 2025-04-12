@@ -22,7 +22,7 @@ import "./SearchPage.css";
 export function SearchPage() {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query") || "";
-  const [input, setInput] = useState(query);
+  const [input, setInput] = useState<string>(query);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -32,7 +32,7 @@ export function SearchPage() {
     }
   }, [location.pathname, query]);
 
-  const handleSearch = (event: React.FormEvent) => {
+  const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (input.trim()) {
       navigate(`/search?query=${encodeURIComponent(input.trim())}`);

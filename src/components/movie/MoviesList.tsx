@@ -3,7 +3,7 @@
  * AUTHOR:  Chris Fowler
  * DATE:    Winter 2025
  *
- * DESCRIPTION: Component to display carousel of movies
+ * DESCRIPTION: Component to display responsive carousel of movies.
  */
 /*----------------------------------------------------------------------
  *                      IMPORTS
@@ -41,18 +41,20 @@ export default function MoviesList({ tag }: MoviesListProps) {
         }}
         className="carousel"
       >
-        <CarouselContent className="flex">
+        <CarouselContent className="flex carousel-content">
           {movieList.map((movie) => (
             <CarouselItem
               key={movie.id}
-              className="carousel-item md:basis-1/2 lg:basis-1/8"
+              className="carousel-item basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 p-1 sm:p-2"
             >
-              <MovieComponent movie={movie} />
+              <div className="movie-wrapper">
+                <MovieComponent movie={movie} />
+              </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="carousel-nav-btn left-nav-button" />
+        <CarouselNext className="carousel-nav-btn right-nav-button" />
       </Carousel>
     </div>
   );

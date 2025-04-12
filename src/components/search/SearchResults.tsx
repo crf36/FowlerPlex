@@ -12,7 +12,7 @@
 import { useNavigate } from "react-router-dom";
 import { useFetchSearchResults } from "../../api/SearchResultsApi";
 import "./SearchResults.css";
-import { SearchResultsProps } from "../../Types";
+import { Movie, SearchResultsProps } from "../../Types";
 
 /*----------------------------------------------------------------------
  *                      COMPONENT
@@ -36,7 +36,7 @@ export function SearchResults({ query }: SearchResultsProps) {
 
       <div className="movie-list">
         {Object.keys(searchResults).map((movieId) => {
-          const movie = searchResults[movieId];
+          const movie: Movie = searchResults[movieId];
           return (
             <button
               key={movie.id}

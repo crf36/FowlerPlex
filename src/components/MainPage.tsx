@@ -18,7 +18,7 @@ import "./MainPage.css";
  */
 export default function MainPage({ children }: { children?: React.ReactNode }) {
   return (
-    <main style={{ width: "100%" }}>
+    <main>
       <div className="page-container">
         <Header />
         <Navigation />

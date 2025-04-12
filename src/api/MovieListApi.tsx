@@ -10,7 +10,7 @@
  *                      IMPORTS
  */
 import { useEffect, useState } from "react";
-import { Movie } from "../Types.js";
+import { Movie, Movies } from "../Types.js";
 import {
   API_KEY,
   BASE_URL,
@@ -22,13 +22,15 @@ import {
  *                      PUBLIC HOOKS
  */
 export const useFetchMovies = function () {
+  const [movies, setMovies] = useState({} as Movies);
   const [isLoading, setIsLoading] = useState(true);
-  const [movies, setMovies] = useState<{ [id: string]: Movie }>({});
 
   useEffect(() => {
-    const fetchMovies = async (tag: string, url: string) => {
+    const fetchMovies = async (tag: string, query: string) => {
       try {
-        const response = await fetch(`${BASE_URL}${url}${URL_QUERY_PARAMS}`, {
+        // Grab movie data from TMDB API
+        const url = `${BASE_URL}${query}${URL_QUERY_PARAMS}`;
+        const response = await fetch(url, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${API_KEY}`,
@@ -36,6 +38,7 @@ export const useFetchMovies = function () {
         });
         const data = await response.json();
 
+        // Map each movie to have a unique key that includes the category tag
         const moviesWithTag = Object.fromEntries(
           data.results.map((movie: Movie) => [
             `${tag}-${movie.id}`,
@@ -54,8 +57,8 @@ export const useFetchMovies = function () {
     const fetchAllMovies = async () => {
       try {
         await Promise.all(
-          await Promise.all(
-            CATEGORY_TAGS.map(({ tag, url }) => fetchMovies(tag, url))
+          Object.entries(CATEGORY_TAGS).map(([tag, url]) =>
+            fetchMovies(tag, url)
           )
         );
       } catch (error) {
@@ -67,5 +70,6 @@ export const useFetchMovies = function () {
 
     fetchAllMovies();
   }, []);
+
   return { movies, isLoading };
 };
