@@ -10,7 +10,7 @@
  */
 import { useOutlet } from "react-router-dom";
 import { useMoviesDataContext } from "../context/MoviesDataContextHook";
-import LoadingIndicator from "./LoadingIndicator";
+import LoadingIndicator from "./layout/LoadingIndicator";
 
 /*----------------------------------------------------------------------
  *                      COMPONENT

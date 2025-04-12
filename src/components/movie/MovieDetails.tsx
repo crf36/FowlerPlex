@@ -9,7 +9,7 @@
  *                      IMPORTS
  */
 import { useFetchMovieDetails } from "../../api/MovieDetailsApi";
-import LoadingIndicator from "../LoadingIndicator";
+import LoadingIndicator from "../layout/LoadingIndicator";
 import "./MovieDetails.css";
 
 /*----------------------------------------------------------------------

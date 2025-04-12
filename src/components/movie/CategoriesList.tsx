@@ -11,7 +11,7 @@
 import { CATEGORY_TAGS } from "../../Constants";
 import { useMoviesDataContext } from "../../context/MoviesDataContextHook";
 import { CategoryTag } from "../../Types";
-import LoadingIndicator from "../LoadingIndicator";
+import LoadingIndicator from "../layout/LoadingIndicator";
 import MoviesList from "./MoviesList";
 
 /*----------------------------------------------------------------------

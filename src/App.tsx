@@ -14,13 +14,7 @@ import MainPage from "./components/MainPage";
 import CategoriesList from "./components/movie/CategoriesList";
 import { MovieDetailsPage } from "./components/movie/MovieDetails";
 import { SearchPage } from "./components/search/SearchPage";
-
-/*----------------------------------------------------------------------
- *                      CUSTOM HELPERS
- */
-function ErrorPage() {
-  return <div>Some Error</div>;
-}
+import { NotFoundPage } from "./components/layout/NotFoundPage";
 
 /*----------------------------------------------------------------------
  *                      COMPONENT
@@ -30,7 +24,7 @@ function App() {
     {
       path: "/",
       element: <MainPage />,
-      errorElement: <ErrorPage />,
+      errorElement: <NotFoundPage />,
       children: [
         { path: "", element: <CategoriesList /> },
         { path: ":movie_id", element: <MovieDetailsPage /> },

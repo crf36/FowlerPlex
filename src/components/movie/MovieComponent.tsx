@@ -11,7 +11,7 @@
 import { useNavigate } from "react-router-dom";
 import { useMoviesDataContext } from "../../context/MoviesDataContextHook";
 import { MovieProps } from "../../Types";
-import LoadingIndicator from "../LoadingIndicator";
+import LoadingIndicator from "../layout/LoadingIndicator";
 import { IMG_URL } from "../../Constants";
 import { useCallback } from "react";
 import "./MovieComponent.css";

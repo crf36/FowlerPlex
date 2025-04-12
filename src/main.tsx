@@ -1,5 +1,5 @@
 /*======================================================================
- * FILE:    App.tsx
+ * FILE:    main.tsx
  * AUTHOR:  Chris Fowler
  * DATE:    Winter 2025
  *

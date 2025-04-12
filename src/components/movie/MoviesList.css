@@ -1,5 +1,7 @@
 .movies-list {
-  padding: 0 12px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
 .category-title {
@@ -11,7 +13,16 @@
 
 .carousel {
   position: relative;
-  padding: 0 3rem;
+  padding: 0;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  width: calc(100% - 6rem);
+  overflow: visible;
+}
+
+.carousel-content {
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .carousel-nav-btn {
@@ -25,19 +36,11 @@
 }
 
 .left-nav-button {
-  left: 0.5rem;
+  left: -2.5rem;
 }
 
 .right-nav-button {
-  right: 0.5rem;
-}
-
-.carousel-content {
-  display: flex;
-}
-
-.carousel-nav-btn:hover {
-  opacity: 1;
+  right: -2.5rem;
 }
 
 .carousel-item {
@@ -56,15 +59,17 @@
 
 @media (min-width: 768px) {
   .carousel {
-    padding: 0 4rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    width: calc(100% - 8rem);
   }
 
   .left-nav-button {
-    left: 1.5rem;
+    left: -3rem;
   }
 
   .right-nav-button {
-    right: 1.5rem;
+    right: -3rem;
   }
 }
 
@@ -74,15 +79,17 @@
   }
 
   .carousel {
-    padding: 0 5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    width: calc(100% - 10rem);
   }
 
   .left-nav-button {
-    left: 2rem;
+    left: -3.5rem;
   }
 
   .right-nav-button {
-    right: 2rem;
+    right: -3.5rem;
   }
 }
 
@@ -111,15 +118,17 @@
   }
 
   .carousel {
-    padding: 0 3.5rem;
+    margin-left: 3.5rem;
+    margin-right: 3.5rem;
+    width: calc(100% - 7rem);
   }
 
   .left-nav-button {
-    left: 1rem;
+    left: -2.75rem;
   }
 
   .right-nav-button {
-    right: 1rem;
+    right: -2.75rem;
   }
 
   .movie-wrapper {

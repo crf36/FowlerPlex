@@ -8,8 +8,8 @@
 /*----------------------------------------------------------------------
  *                      IMPORTS
  */
-import { Footer } from "./Footer";
-import { Header } from "./Header";
+import { Footer } from "./layout/Footer";
+import { Header } from "./layout/Header";
 import { Navigation } from "./Navigation";
 import "./MainPage.css";
 

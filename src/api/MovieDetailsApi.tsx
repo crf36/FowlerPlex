@@ -39,7 +39,9 @@ export const useFetchMovieDetails = function () {
       } catch (error) {
         console.error("Error fetching movie details:", error);
       } finally {
-        setIsLoading(false);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 300);
       }
     };
 

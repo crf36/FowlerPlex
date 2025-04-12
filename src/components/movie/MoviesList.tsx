@@ -10,7 +10,7 @@
  */
 import { useMoviesDataContext } from "../../context/MoviesDataContextHook";
 import { MoviesListProps } from "../../Types";
-import LoadingIndicator from "../LoadingIndicator";
+import LoadingIndicator from "../layout/LoadingIndicator";
 import {
   Carousel,
   CarouselContent,
@@ -38,10 +38,11 @@ export default function MoviesList({ tag }: MoviesListProps) {
       <Carousel
         opts={{
           align: "start",
+          containScroll: "trimSnaps",
         }}
         className="carousel"
       >
-        <CarouselContent className="flex carousel-content">
+        <CarouselContent className="carousel-content">
           {movieList.map((movie) => (
             <CarouselItem
               key={movie.id}
