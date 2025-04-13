@@ -20,18 +20,21 @@ import { NotFoundPage } from "./components/layout/NotFoundPage";
  *                      COMPONENT
  */
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <MainPage />,
-      errorElement: <NotFoundPage />,
-      children: [
-        { path: "", element: <CategoriesList /> },
-        { path: ":movie_id", element: <MovieDetailsPage /> },
-        { path: "search", element: <SearchPage /> },
-      ],
-    },
-  ]);
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <MainPage />,
+        errorElement: <NotFoundPage />,
+        children: [
+          { path: "", element: <CategoriesList /> },
+          { path: ":movie_id", element: <MovieDetailsPage /> },
+          { path: "search", element: <SearchPage /> },
+        ],
+      },
+    ],
+    { basename: "/FowlerPlex" }
+  );
   return (
     <MoviesDataProvider>
       <RouterProvider router={router} />
