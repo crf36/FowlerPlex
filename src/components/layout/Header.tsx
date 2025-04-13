@@ -27,7 +27,7 @@ export function Header() {
       <div className="header-left">
         <img
           className="logoImg"
-          src="/TMDB_Logo.svg"
+          src={`${import.meta.env.BASE_URL}TMDB_Logo.svg`}
           onClick={() => navigate("/")}
           alt="TMDB Logo"
         />
