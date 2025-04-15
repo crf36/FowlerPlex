@@ -1,54 +1,31 @@
-# React + TypeScript + Vite
+# FowlerPlex - A Movie-Finding App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+FowlerPlex is a movie finding app that allows you to explore movies, search by title, and view detailed information about each movie. It offers an intuitive interface with a responsive design, making it easy to browse and find new movies to watch. It leverages the TMDB API to bring in any movie as it is displayed in the app or any movie you search for. This app uses a combination of TypeScript with the React framework.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## How to Run
 
-## Expanding the ESLint configuration
+In order to run this app, simply navigate to [crf36.github.io/FowlerPlex](https://crf36.github.io/FowlerPlex/). From there, you can scroll through movies that are grouped together by different categories, search for movies by title, and select a movie to view more details about it.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## API and Data Usage
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+As mentioned, this app leverages the TMDB API to gather all of its data. The data includes titles, descriptions, genres, ratings, images, and more.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+This data is fetched from the TMDB API and stored locally. From there, the app manages the state of these variabled, and passes them to different components of the app as needed. Specifically, there are 3 places this app makes calls to TMDB:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 1. Generating Content Galleries
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+The homepage of this app displays various categories of movies. Since these movies can be repeated across categories, the app stores the movies in a dictionary with the unique key being the movie id combined with the category tag. This ensures that there are no duplicate keys in the dictionary. A tag property is also added to each movie to make is easier to filter and display the galleries of movies.
+
+### 2. Searching by Title
+
+The search feature of this app leverages a branch of the TMDB that allows for limited filter searching by movie title. The query a user types in is sent to TMDB and returns the top 20 results. These are stored in a similar fashion, however the tag property is left blank (as it doesn't apply) and the key is simply the movie id (since there are no duplicate movies when searching).
+
+### 3. Displaying Movie Details
+
+The details page of this app receives a movie id (when a movie is selected) and fetches additional information about the movie from the API. This is stored in a movie details object which is an extention of the traditional movie object.
+
+## Additional Features
+
+This app implements custom hooks to help fetch data and provide context for it throughout the app. In addition, the app uses some tailwind to display the galleries on the main page of the app.
